@@ -66,7 +66,7 @@ BEGIN;
 
 UPDATE ville 
 SET ville_nom = REPLACE(ville_nom, '-', ' ') 
-WHERE ville_nom LIKE 'SAINT-%'
+WHERE ville_nom LIKE 'SAINT-%';
 
 --ROLLBACK;
 COMMIT;
