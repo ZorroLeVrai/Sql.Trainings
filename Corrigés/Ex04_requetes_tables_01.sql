@@ -14,8 +14,8 @@ WHERE
   AND e.prenom = 'Gaston'
   AND e.nom = 'Pourquier';
 
--- 3.1- Récupérer la meilleurs obtenu en Histoire
-SELECT max(score)
+-- 3.1- Récupérer la meilleure note obtenue en Histoire
+SELECT max(score) AS "meilleure note"
 FROM note n
 INNER JOIN matiere m ON m.id = n.id_matiere
 WHERE m.libelle = 'Histoire';
@@ -30,7 +30,7 @@ ORDER BY n.score DESC
 LIMIT 1;
 
 --2ème exemple
-SELECT e.nom, e.prenom
+SELECT n.score, e.nom, e.prenom
 FROM note n
 INNER JOIN eleve e ON e.id = n.id_eleve
 INNER JOIN matiere m ON m.id = n.id_matiere
@@ -48,7 +48,7 @@ WITH nh AS (
 		INNER JOIN matiere m ON m.id = n.id_matiere
 		WHERE m.libelle = 'Histoire'
 	)
-SELECT e.nom, e.prenom
+SELECT nh.score, e.nom, e.prenom
 FROM nh
 INNER JOIN eleve e ON e.id = nh.id_eleve
 WHERE nh.score = (SELECT max(nh.score) FROM nh);
