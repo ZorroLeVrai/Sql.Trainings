@@ -48,7 +48,7 @@ FROM ville
 GROUP BY ville_nom
 ORDER BY "nb nom ville" DESC;
 
--- 9- Obtenir en une seule requête SQL la liste des villes dont la superficie est supérieure à la superficie moyenne.
+-- 9- Obtenir en une seule requête SQL la liste des villes dont la superficie est supérieure à la superficie moyenne.
 SELECT ville_nom, ville_surface
 FROM ville 
 WHERE ville_surface > (SELECT AVG(ville_surface) FROM ville);
