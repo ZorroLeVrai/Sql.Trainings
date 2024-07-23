@@ -27,7 +27,7 @@ SELECT (SELECT max(id) FROM notes) + 1,
 		(SELECT id FROM matieres WHERE libelle = 'Allemand'),
 		25;
 
--- 4 - Ecrivez une requête pour supprimer la note précédemment ajoutéeEcrivez une requête pour supprimer la note précédemment ajoutée
+-- 4 - Ecrivez une requête pour supprimer la note précédemment ajoutée
 DELETE FROM notes
 WHERE id_eleve = (SELECT id FROM eleves WHERE prenom = 'Léa' AND nom = 'Benoit')
 	AND id_matiere = (SELECT id FROM matieres WHERE libelle = 'Allemand');
